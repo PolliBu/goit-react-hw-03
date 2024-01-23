@@ -1,0 +1,22 @@
+.contact {
+  display: flex;
+  width: 400px;
+  justify-content: space-between;
+  border: 2px solid black;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  align-items: center;
+  padding: 10px;
+}
+
+.text {
+  font-size: 24px;
+}
+
+.btn {
+  height: 35px;
+  padding: 5px;
+  border-radius: 5px;
+  background-color: gray;
+  font-size: 20px;
+}
