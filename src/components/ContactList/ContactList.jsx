@@ -1,11 +1,11 @@
 import { Contact } from '../Contact/Contact';
 
-export const ContactList = ({ contacts }) => {
+export const ContactList = ({ contacts, onDelete }) => {
   return (
     <ul>
       {contacts.map(contact => (
         <li key={contact.id}>
-          <Contact contact={contact} />
+          <Contact contact={contact} onDelete={onDelete} />
         </li>
       ))}
     </ul>
