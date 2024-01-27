@@ -33,7 +33,6 @@ export const ContactForm = ({ onAdd }) => {
     onAdd({ id: nanoId, ...values });
     actions.resetForm();
   };
-
   return (
     <Formik
       initialValues={initialValues}

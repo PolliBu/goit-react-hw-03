@@ -25,9 +25,18 @@ export function App() {
   };
 
   const addContact = newContact => {
-    setContacts(prevContacts => {
-      return [...prevContacts, newContact];
-    });
+    const contactExists = contacts.some(
+      contact =>
+        contact.name.toLowerCase() === newContact.name.toLowerCase() ||
+        contact.number === newContact.number,
+    );
+    // Якщо контакт існує, виводимо повідомлення про помилку
+    if (contactExists) {
+      alert('Contact with the same name or number already exists.');
+    } else {
+      // Якщо контакт не існує, додаємо його до масиву
+      setContacts(prevContacts => [...prevContacts, newContact]);
+    }
   };
 
   useEffect(() => {
