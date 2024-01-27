@@ -1,12 +1,20 @@
 .contact {
   display: flex;
-  width: 400px;
+  width: 350px;
   justify-content: space-between;
   border: 2px solid black;
   border-radius: 10px;
   margin-bottom: 15px;
   align-items: center;
   padding: 10px;
+  transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact:hover,
+.contact:focus {
+  scale: 1.05;
+  color: #212572;
+  border-color: #212572;
 }
 
 .text {

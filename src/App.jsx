@@ -22,11 +22,17 @@ export function App() {
     });
   };
 
+  const addContact = newContact => {
+    setContacts(prevContacts => {
+      return [...prevContacts, newContact];
+    });
+  };
+
   return (
     <>
       <div>
         <h1>Phonebook</h1>
-        <ContactForm />
+        <ContactForm onAdd={addContact} />
         <SearchBox value={nameFilter} onChange={setNameFilter} />
         <ContactList contacts={visibleUsers} onDelete={deleteContact} />
       </div>

@@ -9,6 +9,7 @@ export const SearchBox = ({ value, onChange }) => {
         type="text"
         value={value}
         onChange={evt => onChange(evt.target.value)}
+        placeholder="Name"
       />
     </div>
   );
