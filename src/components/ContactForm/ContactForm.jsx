@@ -1,7 +1,7 @@
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { useId } from 'react';
 import * as Yup from 'yup';
-// import { nanoid } from 'nanoid/non-secure';
+import { nanoid } from 'nanoid/non-secure';
 import css from './ContactForm.module.css';
 
 const FeedbackSchema = Yup.object().shape({
@@ -20,7 +20,6 @@ const FeedbackSchema = Yup.object().shape({
 });
 
 const initialValues = {
-  id: '',
   name: '',
   number: '',
 };
@@ -28,10 +27,10 @@ const initialValues = {
 export const ContactForm = ({ onAdd }) => {
   const nameFieldId = useId();
   const numberFieldId = useId();
-  // const nanoId = nanoid();
+  const nanoId = nanoid(5);
   const handleSubmit = (values, actions) => {
     console.log(values);
-    onAdd({ id: Date.now(), ...values });
+    onAdd({ id: nanoId, ...values });
     actions.resetForm();
   };
 
