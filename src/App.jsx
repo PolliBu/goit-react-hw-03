@@ -15,9 +15,10 @@ export function App() {
     ],
   );
 
-  const visibleUsers = contacts.filter(contact =>
-    contact.name.toLowerCase().includes(nameFilter.toLowerCase()),
-  );
+  useEffect(() => {
+    window.localStorage.setItem('contacts', JSON.stringify(contacts));
+  }, [contacts]);
+
   const deleteContact = contactId => {
     setContacts(prevContacts => {
       return prevContacts.filter(contact => contact.id !== contactId);
@@ -25,23 +26,14 @@ export function App() {
   };
 
   const addContact = newContact => {
-    const contactExists = contacts.some(
-      contact =>
-        contact.name.toLowerCase() === newContact.name.toLowerCase() ||
-        contact.number === newContact.number,
-    );
-    // Якщо контакт існує, виводимо повідомлення про помилку
-    if (contactExists) {
-      alert('Contact with the same name or number already exists.');
-    } else {
-      // Якщо контакт не існує, додаємо його до масиву
-      setContacts(prevContacts => [...prevContacts, newContact]);
-    }
+    setContacts(prevContacts => {
+      return [...prevContacts, newContact];
+    });
   };
 
-  useEffect(() => {
-    window.localStorage.setItem('contacts', JSON.stringify(contacts));
-  }, [contacts]);
+  const visibleUsers = contacts.filter(contact =>
+    contact.name.toLowerCase().includes(nameFilter.toLowerCase()),
+  );
 
   return (
     <>

@@ -27,10 +27,8 @@ const initialValues = {
 export const ContactForm = ({ onAdd }) => {
   const nameFieldId = useId();
   const numberFieldId = useId();
-  const nanoId = nanoid(5);
   const handleSubmit = (values, actions) => {
-    console.log(values);
-    onAdd({ id: nanoId, ...values });
+    onAdd({ id: nanoid(5), ...values });
     actions.resetForm();
   };
   return (
